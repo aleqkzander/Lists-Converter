@@ -28,9 +28,12 @@ namespace List_Converter
             convertedList = new List<string>();
             buildString = string.Empty;
 
-            initalList.Add("Test1:Test2");
-            initalList.Add("Test2:Test3");
-            initalList.Add("Test3:Test4");
+            initalList.Add("user1:references1");
+            initalList.Add("user2:references2");
+            initalList.Add("user3:references3");
+
+            // Convert initial list to stringdata
+            StringTextBox.Text = ConvertListToString(initalList);
         }
 
         private void ClearInitialListBtn_Click(object sender, EventArgs e)
@@ -40,34 +43,57 @@ namespace List_Converter
 
         private void ConvertBtn_Click(object sender, EventArgs e)
         {
+            // Step 1
+            // This happens server side
             // Convert initial list to stringdata
             StringTextBox.Text = ConvertListToString(initalList);
 
 
-            // SEND THE STRINGDATA TO CLIENT NOW VIA HEADER ETC...
+            // Step 2
+            // This happens on the client
+            // Convert the data back to formated string
+            ConvertedTextBox.Text = FormatStringData(StringTextBox.Text);
 
 
-            // On the client side convert the string
-            SplitStringIntoValues();
+            // Step 3
+            // This happens on the client
+            // Convert information back to list
+            ConvertStringToList(convertedList, ConvertedTextBox.Text);
 
 
-            // Add converted data to a list and compare
-            ConvertStringToList(convertedList, StringTextBox.Text);
+            // Clear the box for debugging
+            StringTextBox.Clear();
+
+
+            //Loop through the converted list and print entrys
+            groupBox2.Text = "Debug";
+            foreach(string entry in convertedList)
+            {
+                StringTextBox.Text += FinalizeCovertedData(entry) + "\n\n";
+            }
 
         }
 
 
+        /// <summary>
+        /// Convert listdata to string data
+        /// </summary>
+        /// <param name="ListToConvert"></param>
+        /// <returns></returns>
         public string ConvertListToString(List<string> ListToConvert)
         {
-            // definde string to return
+            // initalize string to return
             string stringData = string.Empty;
 
             // loop through list and build string
             foreach (string entry in ListToConvert)
             {
-                // get entry
-                string entryID = ListToConvert.IndexOf(entry).ToString();
-                stringData += entry + "\n";
+                // make sure entry is not empty
+                if (entry != string.Empty)
+                {
+                    // add entry with seperator
+                    stringData += entry + "#";
+                }
             }
 
             // return string
@@ -75,12 +101,38 @@ namespace List_Converter
         }
 
 
-        public void SplitStringIntoValues()
+        /// <summary>
+        /// Convert unformated string into useable string 
+        /// </summary>
+        /// <param name="sendvalues"></param>
+        /// <returns></returns>
+        public string FormatStringData(string sendvalues)
         {
+            /*
+             * Conversion look like this
+             * 
+             * user1:references1
+             * user2:references2
+             * 
+             */
 
+            string replacedString = sendvalues.Replace("#", "\n");
+            return replacedString;
         }
 
 
+        public string FinalizeCovertedData(string converteddata)
+        {
+            string finalized = converteddata.Replace(":", "\n");
+            return finalized;
+        }
+
+
+        /// <summary>
+        /// Convert string data into Listdata and return the list
+        /// </summary>
+        /// <param name="ConvertedList"></param>
+        /// <param name="StringToConvert"></param>
         public void ConvertStringToList(List<string> ConvertedList, string StringToConvert)
         {
             using (StringReader reader = new StringReader(StringToConvert))
@@ -88,9 +140,10 @@ namespace List_Converter
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    ConvertedList.Add(line + "\n");
+                    ConvertedList.Add(line);
                 }
             }
         }
+
     }
 }

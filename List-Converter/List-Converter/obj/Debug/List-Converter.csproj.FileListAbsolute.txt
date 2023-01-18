@@ -8,3 +8,13 @@ C:\Users\alexa\OneDrive\Dokumente\GitHub\Lists-Converter\List-Converter\List-Con
 C:\Users\alexa\OneDrive\Dokumente\GitHub\Lists-Converter\List-Converter\List-Converter\obj\Debug\List-Converter.csproj.CoreCompileInputs.cache
 C:\Users\alexa\OneDrive\Dokumente\GitHub\Lists-Converter\List-Converter\List-Converter\obj\Debug\List-Converter.exe
 C:\Users\alexa\OneDrive\Dokumente\GitHub\Lists-Converter\List-Converter\List-Converter\obj\Debug\List-Converter.pdb
+D:\Lists-Converter\List-Converter\List-Converter\bin\Debug\List-Converter.exe.config
+D:\Lists-Converter\List-Converter\List-Converter\bin\Debug\List-Converter.exe
+D:\Lists-Converter\List-Converter\List-Converter\bin\Debug\List-Converter.pdb
+D:\Lists-Converter\List-Converter\List-Converter\obj\Debug\List-Converter.csproj.AssemblyReference.cache
+D:\Lists-Converter\List-Converter\List-Converter\obj\Debug\List_Converter.Form1.resources
+D:\Lists-Converter\List-Converter\List-Converter\obj\Debug\List_Converter.Properties.Resources.resources
+D:\Lists-Converter\List-Converter\List-Converter\obj\Debug\List-Converter.csproj.GenerateResource.cache
+D:\Lists-Converter\List-Converter\List-Converter\obj\Debug\List-Converter.csproj.CoreCompileInputs.cache
+D:\Lists-Converter\List-Converter\List-Converter\obj\Debug\List-Converter.exe
+D:\Lists-Converter\List-Converter\List-Converter\obj\Debug\List-Converter.pdb
