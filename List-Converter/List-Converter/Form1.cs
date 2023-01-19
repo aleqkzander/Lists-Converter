@@ -110,7 +110,6 @@ namespace List_Converter
         {
             /*
              * Conversion look like this
-             * 
              * user1:references1
              * user2:references2
              * 
